@@ -5,12 +5,18 @@ import { parseJSON } from "@/ai/utils";
 import {
   suggestChartsTool,
   type SuggestChartsOutput,
-} from "@/ai/tools/suggest";
+  extractChartTool,
+  type ExtractChartOutput,
+  generateChartTool,
+  type GenerateChartOutput,
+  insightChartTool,
+  type InsightChartOutput,
+} from "@/ai/tools";
 import system from "@/ai/prompts/system.md" assert { type: "text" };
 
 export const chartAgent = createDeepAgent({
   model,
-  tools: [suggestChartsTool],
+  tools: [suggestChartsTool, extractChartTool, generateChartTool, insightChartTool],
   systemPrompt: system,
 });
 
@@ -34,4 +40,35 @@ export async function suggestCharts(
   return z
     .array(z.object({ type: z.string(), reason: z.string() }))
     .parse(parseJSON(raw));
+}
+
+export async function extractChart(
+  config: unknown,
+): Promise<ExtractChartOutput> {
+  const raw = await invokeAgent(
+    `Call extract_chart with this config: ${JSON.stringify(config)}`,
+  );
+  return z.array(z.record(z.string(), z.unknown())).parse(parseJSON(raw));
+}
+
+export async function generateChart(
+  data: unknown,
+  type: string,
+  title?: string,
+  colors?: string[],
+): Promise<GenerateChartOutput> {
+  const raw = await invokeAgent(
+    `Call generate_chart with data: ${JSON.stringify(data)}, type: ${type}, title: ${title ?? 'undefined'}, colors: ${JSON.stringify(colors ?? [])}`,
+  );
+  const schema = z.object({ config: z.unknown(), dataMapping: z.unknown() });
+  return schema.parse(parseJSON(raw)).config as GenerateChartOutput;
+}
+
+export async function insightChart(
+  config: unknown,
+): Promise<InsightChartOutput> {
+  const raw = await invokeAgent(
+    `Call insight_chart with this config: ${JSON.stringify(config)}`,
+  );
+  return z.object({ insight: z.string() }).parse(parseJSON(raw));
 }
