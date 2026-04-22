@@ -1,0 +1,16 @@
+.git
+.gitignore
+node_modules
+.env.local
+.env.*.local
+*.md
+README*
+AGENTS*
+CLAUDE*
+.dockerignore
+Dockerfile
+.DS_Store
+*.log
+tmp
+dist
+build
