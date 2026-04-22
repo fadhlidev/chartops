@@ -80,7 +80,9 @@ The value of `insight` is a Markdown-formatted string using the structure below.
 
 ## Example Output
 
+```json
 {"insight":"**Main Finding:**\nRevenue grew 62% from January to June, with clear acceleration in Q2 driven by three consecutive months of gains.\n\n**Key Observations:**\n- June reached Rp 73,000 — the period's highest monthly figure\n- April marked a turning point with a 27% jump (Rp 13,000) from March\n- Only March showed a decline, dropping Rp 4,000 from February\n- Q2 total (Rp 201,000) outpaced Q1 (Rp 145,000) by 39%\n\n**Notable Patterns:**\nWhile Q1 fluctuated between Rp 45–52k with one month of decline, Q2 demonstrated consistent upward momentum — each month setting a new peak. The average monthly gain in Q2 was Rp 6,000, more than double Q1's net movement.\n\n**Implications:**\nThe Q2 acceleration suggests an initiative or market shift around April that is worth identifying and scaling. The consistency of gains points to sustainable improvement rather than a one-time spike. Investigating the March dip could reveal a recurring seasonal risk to mitigate in future planning cycles."}
+```
 
 ## Quality Checklist
 
