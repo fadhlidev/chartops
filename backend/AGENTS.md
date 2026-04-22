@@ -15,6 +15,7 @@ bun run dev # same as above
 - `POST /api/v1/ai/insight` - Generate insights
 
 ## Plugins
+- `@bogeychan/elysia-logger` - Pino-based logging (autoLogging enabled)
 - `@elysiajs/cors` - CORS support
 - `elysia-rate-limit` - Rate limiting (60 req/min)
 - `@elysiajs/swagger` - OpenAPI docs at `/swagger`
