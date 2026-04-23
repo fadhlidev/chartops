@@ -18,6 +18,7 @@ cd frontend && bun lint   # ESLint
 # Backend
 cd backend && bun dev     # dev server with watch mode
 cd backend && bun run dev # same as above
+cd backend && bun test   # run tests
 ```
 
 ## Tech Stack Notes
@@ -27,6 +28,25 @@ cd backend && bun run dev # same as above
 - **ESLint 9** - flat config in `eslint.config.mjs`
 - **Tailwind 4** - configured with `@tailwindcss/postcss` v4
 - **Elysia** - fast web framework, uses decorators differently from Express
+
+## Development Guidelines
+
+### Commit Messages
+All commit messages must follow this format:
+```
+[action]: [message]
+```
+
+Examples:
+- `feat: add user authentication`
+- `fix: resolve chart rendering issue`
+- `test: add utils unit tests`
+- `refactor: simplify data mapping logic`
+
+### Testing Requirements
+- **Always run tests before committing** - Run `bun test` in the relevant package to ensure changes don't break existing functionality
+- **Unit tests for new functions** - When introducing new core functions, always create unit tests covering all cases
+- **Test file location** - Place tests in `backend/test/` for backend code
 
 ## Key Constraints
 
