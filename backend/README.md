@@ -70,8 +70,14 @@ Server runs at `http://localhost:8080`.
 
 | Variable | Description |
 |----------|-------------|
+| `LLM_PROVIDER` | LLM provider: `openai`, `anthropic`, `gemini`, `ollama` (default: `openai`) |
 | `OPENAI_API_KEY` | OpenAI API key |
 | `OPENAI_API_MODEL` | Model to use (default: `gpt-4o`) |
+| `ANTHROPIC_API_KEY` | Anthropic API key |
+| `ANTHROPIC_MODEL` | Model to use (default: `claude-sonnet-4-20250514`) |
+| `GOOGLE_API_KEY` | Google API key |
+| `GOOGLE_MODEL` | Model to use (default: `gemini-2.0-flash`) |
+| `OLLAMA_MODEL` | Model to use (default: `llama3`, connects to localhost:11434) |
 
 ## Configuration
 
